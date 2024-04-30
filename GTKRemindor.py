@@ -28,16 +28,16 @@ class MainApplication(Gtk.Window):
         print(data)
         builder.get_object("nameReminder").set_text(data['name'])
         builder.get_object("monday").set_active(bool(data['monday'])),
-        # "tuesday" : builder.get_object("tuesday").get_active(),
-        # "wednesday" : builder.get_object("wednesday").get_active(),
-        # "thursday" : builder.get_object("thursday").get_active(),
-        # "friday" : builder.get_object("friday").get_active(),
-        # "saturday" : builder.get_object("saturday").get_active(),
-        # "sunday" : builder.get_object("sunday").get_active(),
-        # "timeHours" : builder.get_object("timeHours").get_text(),
-        # "timeMinutes" : builder.get_object("timeMinutes").get_text(),
-        # "isRepeat" : builder.get_object("isRepeat").get_active(),
-        # "reminderText" : builder.get_object("reminderText").get_buffer(),
+        builder.get_object("tuesday").set_active(bool(data['tuesday'])),
+        builder.get_object("wednesday").set_active(bool(data['wednesday'])),
+        builder.get_object("thursday").set_active(bool(data['thursday'])),
+        builder.get_object("friday").set_active(bool(data['friday'])),
+        builder.get_object("saturday").set_active(bool(data['saturday'])),
+        builder.get_object("sunday").set_active(bool(data['sunday'])),
+        builder.get_object("timeHours").set_text(data['timeHours']),
+        builder.get_object("timeMinutes").set_text(data['timeMinutes']),
+        builder.get_object("isRepeat").set_active(bool(data['isRepeat'])),
+        builder.get_object("reminderText").set_buffer(data['reminderText']),
 
     def getCurrentElementIndex(button):
         global selectedReminder
