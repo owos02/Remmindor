@@ -117,13 +117,39 @@
             <property name="vexpand">True</property>
             <property name="width-request">0</property>
             <child>
-              <object class="GtkEntry" id="nameReminder">
-                <property name="margin-bottom">5</property>
-                <property name="placeholder-text">Name of Reminder</property>
+              <object class="GtkBox">
+                <property name="vexpand">True</property>
+                <child>
+                  <object class="GtkEntry" id="nameReminder">
+                    <property name="expand">True</property>
+                    <property name="halign">baseline</property>
+                    <property name="hexpand">True</property>
+                    <property name="margin-bottom">5</property>
+                    <property name="placeholder-text">Name of Reminder</property>
+                    <property name="vexpand">True</property>
+                    <property name="width-request">380</property>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkCheckButton">
+                    <property name="expand">True</property>
+                    <property name="halign">end</property>
+                    <property name="margin-bottom">5</property>
+                    <property name="vexpand">True</property>
+                    <child>
+                      <object class="GtkLabel">
+                        <property name="expand">True</property>
+                        <property name="halign">end</property>
+                        <property name="label">Repeat</property>
+                        <property name="valign">center</property>
+                      </object>
+                    </child>
+                  </object>
+                  <packing>
+                    <property name="position">1</property>
+                  </packing>
+                </child>
               </object>
-              <packing>
-                <property name="position">0</property>
-              </packing>
             </child>
             <child>
               <object class="GtkBox">

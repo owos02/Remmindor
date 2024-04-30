@@ -49,9 +49,12 @@
 	(1,75,"GtkLabel","labelHours",70,None,None,None,None,None,None),
 	(1,76,"GtkLabel","labelMinutes",71,None,None,None,None,None,None),
 	(1,77,"GtkButton","saveReminder",35,None,None,None,3,None,None),
-	(1,79,"GtkEntry","nameReminder",35,None,None,None,None,None,None),
 	(1,80,"GtkScrolledWindow",None,29,None,None,None,1,None,None),
-	(1,81,"GtkButtonBox","reminderBox",80,None,None,None,None,None,None)
+	(1,81,"GtkButtonBox","reminderBox",80,None,None,None,None,None,None),
+	(1,82,"GtkBox",None,35,None,None,None,-1,None,None),
+	(1,83,"GtkEntry","nameReminder",82,None,None,None,None,None,None),
+	(1,84,"GtkCheckButton",None,82,None,None,None,1,None,None),
+	(1,85,"GtkLabel",None,84,None,None,None,-1,None,None)
   </object>
   <object_property>
 	(1,23,"GtkWidget","height-request","500",None,None,None,None,None,None,None,None,None),
@@ -155,24 +158,38 @@
 	(1,77,"GtkButton","label","Save",None,None,None,None,None,None,None,None,None),
 	(1,77,"GtkWidget","hexpand","True",None,None,None,None,None,None,None,None,None),
 	(1,77,"GtkWidget","valign","end",None,None,None,None,None,None,None,None,None),
-	(1,79,"GtkEntry","placeholder-text","Name of Reminder",None,None,None,None,None,None,None,None,None),
-	(1,79,"GtkWidget","margin-bottom","5",None,None,None,None,None,None,None,None,None),
 	(1,80,"GtkWidget","height-request","440",None,None,None,None,None,None,None,None,None),
 	(1,80,"GtkWidget","vexpand","True",None,None,None,None,None,None,None,None,None),
 	(1,81,"GtkButtonBox","layout-style","expand",None,None,None,None,None,None,None,None,None),
-	(1,81,"GtkOrientable","orientation","vertical",None,None,None,None,None,None,None,None,None)
+	(1,81,"GtkOrientable","orientation","vertical",None,None,None,None,None,None,None,None,None),
+	(1,82,"GtkWidget","vexpand","True",None,None,None,None,None,None,None,None,None),
+	(1,83,"GtkEntry","placeholder-text","Name of Reminder",None,None,None,None,None,None,None,None,None),
+	(1,83,"GtkWidget","expand","True",None,None,None,None,None,None,None,None,None),
+	(1,83,"GtkWidget","halign","baseline",None,None,None,None,None,None,None,None,None),
+	(1,83,"GtkWidget","hexpand","True",None,None,None,None,None,None,None,None,None),
+	(1,83,"GtkWidget","margin-bottom","5",None,None,None,None,None,None,None,None,None),
+	(1,83,"GtkWidget","vexpand","True",None,None,None,None,None,None,None,None,None),
+	(1,83,"GtkWidget","width-request","380",None,None,None,None,None,None,None,None,None),
+	(1,84,"GtkWidget","expand","True",None,None,None,None,None,None,None,None,None),
+	(1,84,"GtkWidget","halign","end",None,None,None,None,None,None,None,None,None),
+	(1,84,"GtkWidget","margin-bottom","5",None,None,None,None,None,None,None,None,None),
+	(1,84,"GtkWidget","vexpand","True",None,None,None,None,None,None,None,None,None),
+	(1,85,"GtkLabel","label","Repeat",None,None,None,None,None,None,None,None,None),
+	(1,85,"GtkWidget","expand","True",None,None,None,None,None,None,None,None,None),
+	(1,85,"GtkWidget","halign","end",None,None,None,None,None,None,None,None,None),
+	(1,85,"GtkWidget","valign","center",None,None,None,None,None,None,None,None,None)
   </object_property>
   <object_layout_property>
 	(1,24,35,"GtkBoxLayoutChild","expand","True",None,None,None,None),
 	(1,24,35,"GtkBoxLayoutChild","position","1",None,None,None,None),
 	(1,29,80,"GtkBoxLayoutChild","position","1",None,None,None,None),
 	(1,35,44,"GtkBoxLayoutChild","padding","10",None,None,None,None),
-	(1,35,79,"GtkBoxLayoutChild","position","0",None,None,None,None),
 	(1,69,70,"GtkBoxLayoutChild","position","0",None,None,None,None),
 	(1,70,73,"GtkBoxLayoutChild","position","1",None,None,None,None),
 	(1,70,75,"GtkBoxLayoutChild","position","0",None,None,None,None),
 	(1,71,74,"GtkBoxLayoutChild","position","1",None,None,None,None),
-	(1,71,76,"GtkBoxLayoutChild","position","0",None,None,None,None)
+	(1,71,76,"GtkBoxLayoutChild","position","0",None,None,None,None),
+	(1,82,84,"GtkBoxLayoutChild","position","1",None,None,None,None)
   </object_layout_property>
   <object_signal>
 	(1,1,23,"GtkWidget","destroy","onDestroy",None,None,None,None,None),
