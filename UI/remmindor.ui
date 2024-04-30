@@ -1,0 +1,331 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- Created with Cambalache 0.90.2 -->
+<interface>
+  <!-- interface-name remmindor.ui -->
+  <requires lib="gtk+" version="3.20"/>
+  <object class="GtkWindow" id="MainWindow">
+    <property name="gravity">north</property>
+    <property name="height-request">500</property>
+    <property name="name">Remmindor</property>
+    <property name="resizable">False</property>
+    <property name="title">Remmindor</property>
+    <property name="vexpand">True</property>
+    <property name="width-request">1000</property>
+    <signal name="destroy" handler="onDestroy"/>
+    <child>
+      <object class="GtkBox" id="lvl1Box">
+        <property name="expand">True</property>
+        <property name="hexpand">True</property>
+        <property name="homogeneous">True</property>
+        <property name="valign">start</property>
+        <property name="vexpand">True</property>
+        <property name="width-request">0</property>
+        <child>
+          <object class="GtkBox" id="leftColumn">
+            <property name="halign">baseline</property>
+            <property name="hexpand-set">True</property>
+            <property name="margin">10</property>
+            <property name="orientation">vertical</property>
+            <property name="width-request">250</property>
+            <child>
+              <object class="GtkBox" id="lTop">
+                <property name="margin-bottom">10</property>
+                <property name="width-request">250</property>
+                <child>
+                  <object class="GtkLabel" id="lockedLabel">
+                    <property name="halign">center</property>
+                    <property name="label">Locked: </property>
+                    <property name="valign">center</property>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkSwitch" id="lockedSwitch">
+                    <property name="halign">center</property>
+                    <property name="margin-left">15</property>
+                    <property name="valign">center</property>
+                  </object>
+                </child>
+              </object>
+            </child>
+            <child>
+              <object class="GtkBox" id="lMiddle">
+                <property name="height-request">465</property>
+                <property name="orientation">vertical</property>
+                <property name="vexpand">True</property>
+                <property name="width-request">250</property>
+                <child>
+                  <object class="GtkSearchEntry" id="reminderSearch">
+                    <property name="activates-default">True</property>
+                    <property name="margin-bottom">10</property>
+                    <property name="placeholder-text">Search for Reminder</property>
+                    <property name="width-request">250</property>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkScrolledWindow">
+                    <property name="height-request">440</property>
+                    <property name="vexpand">True</property>
+                    <child>
+                      <object class="GtkButtonBox" id="reminderBox">
+                        <property name="layout-style">expand</property>
+                        <property name="orientation">vertical</property>
+                      </object>
+                    </child>
+                  </object>
+                  <packing>
+                    <property name="position">1</property>
+                  </packing>
+                </child>
+              </object>
+            </child>
+            <child>
+              <object class="GtkBox" id="lBottom">
+                <property name="hexpand">True</property>
+                <property name="margin-top">10</property>
+                <property name="valign">end</property>
+                <property name="vexpand">True</property>
+                <child>
+                  <object class="GtkButton">
+                    <property name="hexpand">True</property>
+                    <property name="label">Add</property>
+                    <property name="margin-right">5</property>
+                    <property name="valign">center</property>
+                    <signal name="clicked" handler="onAddClicked"/>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkButton">
+                    <property name="hexpand">True</property>
+                    <property name="label">Delete</property>
+                    <property name="margin-left">5</property>
+                    <signal name="clicked" handler="onDeleteClicked"/>
+                  </object>
+                </child>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="GtkBox" id="rightColumn">
+            <property name="expand">True</property>
+            <property name="halign">baseline</property>
+            <property name="hexpand">True</property>
+            <property name="hexpand-set">True</property>
+            <property name="margin">10</property>
+            <property name="orientation">vertical</property>
+            <property name="valign">start</property>
+            <property name="vexpand">True</property>
+            <property name="width-request">0</property>
+            <child>
+              <object class="GtkEntry" id="nameReminder">
+                <property name="margin-bottom">5</property>
+                <property name="placeholder-text">Name of Reminder</property>
+              </object>
+              <packing>
+                <property name="position">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkBox">
+                <property name="valign">start</property>
+                <child>
+                  <object class="GtkListBox" id="listDays">
+                    <property name="halign">baseline</property>
+                    <property name="width-request">7</property>
+                    <child>
+                      <object class="GtkBox">
+                        <child>
+                          <object class="GtkCheckButton" id="monday">
+                            <child>
+                              <object class="GtkLabel">
+                                <property name="label">Monday</property>
+                              </object>
+                            </child>
+                          </object>
+                        </child>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkBox">
+                        <child>
+                          <object class="GtkCheckButton" id="tuesday">
+                            <child>
+                              <object class="GtkLabel">
+                                <property name="label">Tuesday</property>
+                              </object>
+                            </child>
+                          </object>
+                        </child>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkBox">
+                        <child>
+                          <object class="GtkCheckButton" id="wednesday">
+                            <child>
+                              <object class="GtkLabel">
+                                <property name="label">Wednesday</property>
+                              </object>
+                            </child>
+                          </object>
+                        </child>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkBox">
+                        <child>
+                          <object class="GtkCheckButton" id="thursday">
+                            <child>
+                              <object class="GtkLabel">
+                                <property name="label">Thursday</property>
+                              </object>
+                            </child>
+                          </object>
+                        </child>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkBox">
+                        <child>
+                          <object class="GtkCheckButton" id="friday">
+                            <child>
+                              <object class="GtkLabel">
+                                <property name="label">Friday</property>
+                              </object>
+                            </child>
+                          </object>
+                        </child>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkBox">
+                        <child>
+                          <object class="GtkCheckButton" id="saturday">
+                            <child>
+                              <object class="GtkLabel">
+                                <property name="label">Saturday</property>
+                              </object>
+                            </child>
+                          </object>
+                        </child>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkBox">
+                        <child>
+                          <object class="GtkCheckButton" id="sunday">
+                            <child>
+                              <object class="GtkLabel">
+                                <property name="label">Sunday</property>
+                              </object>
+                            </child>
+                          </object>
+                        </child>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkBox" id="boxTime">
+                    <property name="hexpand">True</property>
+                    <property name="valign">baseline</property>
+                    <child>
+                      <object class="GtkBox">
+                        <property name="expand">True</property>
+                        <property name="halign">baseline</property>
+                        <property name="margin-right">5</property>
+                        <property name="orientation">vertical</property>
+                        <child>
+                          <object class="GtkLabel" id="labelHours">
+                            <property name="label">Hours</property>
+                          </object>
+                          <packing>
+                            <property name="position">0</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkSpinButton" id="timeHours">
+                            <property name="climb-rate">1.0</property>
+                            <property name="halign">center</property>
+                            <property name="input-purpose">number</property>
+                            <property name="max-length">2</property>
+                            <property name="max-width-chars">2</property>
+                            <property name="numeric">True</property>
+                            <property name="snap-to-ticks">True</property>
+                            <property name="value">1.0</property>
+                          </object>
+                          <packing>
+                            <property name="position">1</property>
+                          </packing>
+                        </child>
+                      </object>
+                      <packing>
+                        <property name="position">0</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkBox">
+                        <property name="expand">True</property>
+                        <property name="halign">baseline</property>
+                        <property name="margin-left">5</property>
+                        <property name="orientation">vertical</property>
+                        <child>
+                          <object class="GtkLabel" id="labelMinutes">
+                            <property name="label">Minutes</property>
+                          </object>
+                          <packing>
+                            <property name="position">0</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkSpinButton" id="timeMinutes">
+                            <property name="climb-rate">1.0</property>
+                            <property name="halign">center</property>
+                            <property name="input-purpose">number</property>
+                            <property name="max-length">2</property>
+                            <property name="max-width-chars">2</property>
+                            <property name="numeric">True</property>
+                            <property name="placeholder-text">0</property>
+                            <property name="snap-to-ticks">True</property>
+                            <property name="value">1.0</property>
+                            <property name="wrap">True</property>
+                          </object>
+                          <packing>
+                            <property name="position">1</property>
+                          </packing>
+                        </child>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+              </object>
+            </child>
+            <child>
+              <object class="GtkTextView" id="reminderText">
+                <property name="height-request">300</property>
+                <property name="margin-bottom">10</property>
+                <property name="margin-top">10</property>
+                <property name="vexpand">True</property>
+              </object>
+              <packing>
+                <property name="padding">10</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkButton" id="saveReminder">
+                <property name="hexpand">True</property>
+                <property name="label">Save</property>
+                <property name="valign">end</property>
+                <signal name="clicked" handler="onSaveClicked"/>
+              </object>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">True</property>
+            <property name="position">1</property>
+          </packing>
+        </child>
+      </object>
+    </child>
+  </object>
+</interface>
