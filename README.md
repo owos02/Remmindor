@@ -6,7 +6,7 @@ Simple yet useful.
 
 # Preview
 
-![Remmindor Image Preview](readme-files/Remmindor-Clean.png)
+![Remmindor Image Preview](readme-files/Filled-Program.png)
 
 # Features
 
