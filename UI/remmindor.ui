@@ -131,7 +131,7 @@
                   </object>
                 </child>
                 <child>
-                  <object class="GtkCheckButton">
+                  <object class="GtkCheckButton" id="isRepeat">
                     <property name="expand">True</property>
                     <property name="halign">end</property>
                     <property name="margin-bottom">5</property>

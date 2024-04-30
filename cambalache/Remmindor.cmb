@@ -53,7 +53,7 @@
 	(1,81,"GtkButtonBox","reminderBox",80,None,None,None,None,None,None),
 	(1,82,"GtkBox",None,35,None,None,None,-1,None,None),
 	(1,83,"GtkEntry","nameReminder",82,None,None,None,None,None,None),
-	(1,84,"GtkCheckButton",None,82,None,None,None,1,None,None),
+	(1,84,"GtkCheckButton","isRepeat",82,None,None,None,1,None,None),
 	(1,85,"GtkLabel",None,84,None,None,None,-1,None,None)
   </object>
   <object_property>
