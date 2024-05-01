@@ -131,7 +131,11 @@ class MainApplication(Gtk.Window):
         reminders = json.load(open('data/data.rem'))
         index = 0
         for r in reminders:
-            btn = Gtk.Button(label="Placeholder " + str(index), name=index)
+            if not r:
+                btn = Gtk.Button(label="New Reminder "+ str(index), name=index)
+                
+            else:
+                btn = Gtk.Button(label=r[0][1], name=index)
             btn.connect("clicked", MainApplication.getCurrentElementIndex)
             builder.get_object("reminderBox").add(btn)
             index +=1
