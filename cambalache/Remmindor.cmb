@@ -104,6 +104,12 @@
 	(1,38,"GtkWidget","halign","baseline",None,None,None,None,None,None,None,None,None),
 	(1,38,"GtkWidget","width-request","7",None,None,None,None,None,None,None,None,None),
 	(1,41,"GtkLabel","label","Monday",None,None,None,None,None,None,None,None,None),
+	(1,44,"GtkContainer","border-width","10",None,None,None,None,None,None,None,None,None),
+	(1,44,"GtkTextView","bottom-margin","10",None,None,None,None,None,None,None,None,None),
+	(1,44,"GtkTextView","left-margin","10",None,None,None,None,None,None,None,None,None),
+	(1,44,"GtkTextView","right-margin","10",None,None,None,None,None,None,None,None,None),
+	(1,44,"GtkTextView","top-margin","10",None,None,None,None,None,None,None,None,None),
+	(1,44,"GtkTextView","wrap-mode","word",None,None,None,None,None,None,None,None,None),
 	(1,44,"GtkWidget","height-request","300",None,None,None,None,None,None,None,None,None),
 	(1,44,"GtkWidget","margin-bottom","10",None,None,None,None,None,None,None,None,None),
 	(1,44,"GtkWidget","margin-top","10",None,None,None,None,None,None,None,None,None),
@@ -142,6 +148,7 @@
 	(1,73,"GtkSpinButton","numeric","True",None,None,None,None,None,None,None,None,None),
 	(1,73,"GtkSpinButton","snap-to-ticks","True",None,None,None,None,None,None,None,None,None),
 	(1,73,"GtkSpinButton","value","1.0",None,None,None,None,None,None,None,None,None),
+	(1,73,"GtkSpinButton","wrap","True",None,None,None,None,None,None,None,None,None),
 	(1,73,"GtkWidget","halign","center",None,None,None,None,None,None,None,None,None),
 	(1,74,"GtkEntry","input-purpose","number",None,None,None,None,None,None,None,None,None),
 	(1,74,"GtkEntry","max-length","2",None,None,None,None,None,None,None,None,None),
@@ -197,4 +204,7 @@
 	(3,1,47,"GtkButton","clicked","onDeleteClicked",None,None,None,None,None),
 	(4,1,77,"GtkButton","clicked","onSaveClicked",None,None,None,None,None)
   </object_signal>
+  <object_data>
+	(1,44,"GtkWidget",2,2,None,1,None,None,None,None)
+  </object_data>
 </cambalache-project>

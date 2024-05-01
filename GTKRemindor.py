@@ -1,6 +1,8 @@
-import gi
+import gi, json
+
 gi.require_version("Gtk", "3.0")
 from gi.repository import Gtk
+from pathlib import Path
 builder = Gtk.Builder()
 builder.add_from_file("UI/remmindor.ui")
 
@@ -8,9 +10,7 @@ builder.add_from_file("UI/remmindor.ui")
 ### example_structure: ID,[Reminder Information]
 
 reminders = []          #Local Reminder Dictionary
-selectedReminder = 0
-#Current Selected Reminder that gets edited
-
+selectedReminder = 0    #Current Selected Reminder that gets edited
 
 def lockReminder(button):
     pass
@@ -24,8 +24,12 @@ class MainApplication(Gtk.Window):
         global reminders
         global selectedReminder
 
+
         data = dict(reminders[int(selectedReminder)])
         print(data)
+        text = Gtk.TextBuffer().new()
+        text.set_text(data['reminderText'])
+
         builder.get_object("nameReminder").set_text(data['name'])
         builder.get_object("monday").set_active(bool(data['monday'])),
         builder.get_object("tuesday").set_active(bool(data['tuesday'])),
@@ -37,7 +41,7 @@ class MainApplication(Gtk.Window):
         builder.get_object("timeHours").set_text(data['timeHours']),
         builder.get_object("timeMinutes").set_text(data['timeMinutes']),
         builder.get_object("isRepeat").set_active(bool(data['isRepeat'])),
-        builder.get_object("reminderText").set_buffer(data['reminderText']),
+        builder.get_object("reminderText").set_buffer(text),
 
     def getCurrentElementIndex(button):
         global selectedReminder
@@ -51,7 +55,6 @@ class MainApplication(Gtk.Window):
         
         tmp = builder.get_object("nameReminder")
         tmp.set_text(button.get_label())
-
 
     def deselect():
         builder.get_object("monday").set_active(False)
@@ -74,6 +77,8 @@ class MainApplication(Gtk.Window):
             if btn.get_name() == selectedReminder:
                 btn.set_label(builder.get_object("nameReminder").get_text())
 
+        buffer = builder.get_object("reminderText").get_buffer()
+
         data = {
             "name": builder.get_object("nameReminder").get_text(),
             "monday" : builder.get_object("monday").get_active(),
@@ -86,12 +91,19 @@ class MainApplication(Gtk.Window):
             "timeHours" : builder.get_object("timeHours").get_text(),
             "timeMinutes" : builder.get_object("timeMinutes").get_text(),
             "isRepeat" : builder.get_object("isRepeat").get_active(),
-            "reminderText" : builder.get_object("reminderText").get_buffer(),
+            "reminderText" : buffer.get_text(buffer.get_start_iter(), buffer.get_end_iter(), True)
         }
-        
         reminders[int(selectedReminder)] = list(data.items())
-        
 
+        # Serializing json
+        json_object = json.dumps(reminders, indent=None)
+        
+        # Writing to sample.json
+        with open("data/data.rem","w") as outfile:
+            outfile.write(json_object)
+
+        print(reminders)
+        
     def addReminder(button):
         global reminders
         global selectedReminder
@@ -103,13 +115,28 @@ class MainApplication(Gtk.Window):
         reminderButton = Gtk.Button(label="New Reminder " + str(newestID + 1), name=newestID)
         reminderButton.connect("clicked", MainApplication.getCurrentElementIndex)
 
-
         builder.get_object("reminderBox").add(reminderButton)
         window.show_all()
 
         selectedReminder = newestID
         print(reminders)
 
+
+    def loadSavedReminders():
+        global reminders
+        file = Path("data/data.rem")
+        if not file.exists():
+            return
+
+        reminders = json.load(open('data/data.rem'))
+        index = 0
+        for r in reminders:
+            btn = Gtk.Button(label="Placeholder " + str(index), name=index)
+            btn.connect("clicked", MainApplication.getCurrentElementIndex)
+            builder.get_object("reminderBox").add(btn)
+            index +=1
+
+        print(reminders)
 
 generalHandlers = {
     "onDestroy": Gtk.main_quit,
@@ -119,6 +146,8 @@ generalHandlers = {
 }
 
 ###
+
+MainApplication.loadSavedReminders()
 
 builder.connect_signals(generalHandlers)
 window = builder.get_object("MainWindow")
