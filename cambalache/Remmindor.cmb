@@ -2,7 +2,7 @@
 <!DOCTYPE cambalache-project SYSTEM "cambalache-project.dtd">
 <cambalache-project version="0.17.3" target_tk="gtk+-3.0">
   <ui>
-	(1,None,"remmindor.ui","remmindor.ui",None,None,None,None,None,None,None)
+	(1,None,"remmindor.ui","remmindor.ui","The UI file for the open-source\nprogram Remmindor.\n\nFind it here: https://github.com/owos02","You can find the License here:\nhttps://github.com/owos02/Remmindor/blob/main/LICENSE","Oliver W.",None,None,None,None)
   </ui>
   <object>
 	(1,23,"GtkWindow","MainWindow",None,None,None,None,-1,None,None),
@@ -19,7 +19,6 @@
 	(1,39,"GtkBox",None,38,None,None,None,None,None,None),
 	(1,40,"GtkCheckButton","monday",39,None,None,None,None,None,None),
 	(1,41,"GtkLabel",None,40,None,None,None,None,None,None),
-	(1,44,"GtkTextView","reminderText",35,None,None,None,2,None,None),
 	(1,45,"GtkBox","lBottom",25,None,None,None,2,None,None),
 	(1,46,"GtkButton",None,45,None,None,None,None,None,None),
 	(1,47,"GtkButton",None,45,None,None,None,1,None,None),
@@ -41,7 +40,7 @@
 	(1,66,"GtkBox",None,38,None,None,None,6,None,None),
 	(1,67,"GtkCheckButton","sunday",66,None,None,None,None,None,None),
 	(1,68,"GtkLabel",None,67,None,None,None,None,None,None),
-	(1,69,"GtkBox","boxTime",37,None,None,None,None,None,None),
+	(1,69,"GtkBox","boxTime",37,None,None,None,1,None,None),
 	(1,70,"GtkBox",None,69,None,None,None,None,None,None),
 	(1,71,"GtkBox",None,69,None,None,None,1,None,None),
 	(1,73,"GtkSpinButton","timeHours",70,None,None,None,1,None,None),
@@ -54,7 +53,11 @@
 	(1,82,"GtkBox",None,35,None,None,None,-1,None,None),
 	(1,83,"GtkEntry","nameReminder",82,None,None,None,None,None,None),
 	(1,84,"GtkCheckButton","isRepeat",82,None,None,None,1,None,None),
-	(1,85,"GtkLabel",None,84,None,None,None,-1,None,None)
+	(1,85,"GtkLabel",None,84,None,None,None,-1,None,None),
+	(1,87,"GtkAdjustment","minutes",71,None,None,None,2,None,None),
+	(1,88,"GtkAdjustment","hours",70,None,None,None,2,None,None),
+	(1,89,"GtkFrame","reminderFrame",35,None,None,None,2,None,None),
+	(1,90,"GtkTextView","reminderText",89,None,None,None,None,"",None)
   </object>
   <object_property>
 	(1,23,"GtkWidget","height-request","500",None,None,None,None,None,None,None,None,None),
@@ -104,16 +107,6 @@
 	(1,38,"GtkWidget","halign","baseline",None,None,None,None,None,None,None,None,None),
 	(1,38,"GtkWidget","width-request","7",None,None,None,None,None,None,None,None,None),
 	(1,41,"GtkLabel","label","Monday",None,None,None,None,None,None,None,None,None),
-	(1,44,"GtkContainer","border-width","10",None,None,None,None,None,None,None,None,None),
-	(1,44,"GtkTextView","bottom-margin","10",None,None,None,None,None,None,None,None,None),
-	(1,44,"GtkTextView","left-margin","10",None,None,None,None,None,None,None,None,None),
-	(1,44,"GtkTextView","right-margin","10",None,None,None,None,None,None,None,None,None),
-	(1,44,"GtkTextView","top-margin","10",None,None,None,None,None,None,None,None,None),
-	(1,44,"GtkTextView","wrap-mode","word",None,None,None,None,None,None,None,None,None),
-	(1,44,"GtkWidget","height-request","300",None,None,None,None,None,None,None,None,None),
-	(1,44,"GtkWidget","margin-bottom","10",None,None,None,None,None,None,None,None,None),
-	(1,44,"GtkWidget","margin-top","10",None,None,None,None,None,None,None,None,None),
-	(1,44,"GtkWidget","vexpand","True",None,None,None,None,None,None,None,None,None),
 	(1,45,"GtkWidget","hexpand","True",None,None,None,None,None,None,None,None,None),
 	(1,45,"GtkWidget","margin-top","10",None,None,None,None,None,None,None,None,None),
 	(1,45,"GtkWidget","valign","end",None,None,None,None,None,None,None,None,None),
@@ -142,23 +135,12 @@
 	(1,71,"GtkWidget","halign","baseline",None,None,None,None,None,None,None,None,None),
 	(1,71,"GtkWidget","margin-left","5",None,None,None,None,None,None,None,None,None),
 	(1,73,"GtkEntry","input-purpose","number",None,None,None,None,None,None,None,None,None),
-	(1,73,"GtkEntry","max-length","2",None,None,None,None,None,None,None,None,None),
-	(1,73,"GtkEntry","max-width-chars","2",None,None,None,None,None,None,None,None,None),
-	(1,73,"GtkSpinButton","climb-rate","1.0",None,None,None,None,None,None,None,None,None),
-	(1,73,"GtkSpinButton","numeric","True",None,None,None,None,None,None,None,None,None),
+	(1,73,"GtkSpinButton","adjustment","88",None,None,None,None,None,None,None,None,None),
 	(1,73,"GtkSpinButton","snap-to-ticks","True",None,None,None,None,None,None,None,None,None),
-	(1,73,"GtkSpinButton","value","1.0",None,None,None,None,None,None,None,None,None),
-	(1,73,"GtkSpinButton","wrap","True",None,None,None,None,None,None,None,None,None),
 	(1,73,"GtkWidget","halign","center",None,None,None,None,None,None,None,None,None),
 	(1,74,"GtkEntry","input-purpose","number",None,None,None,None,None,None,None,None,None),
-	(1,74,"GtkEntry","max-length","2",None,None,None,None,None,None,None,None,None),
-	(1,74,"GtkEntry","max-width-chars","2",None,None,None,None,None,None,None,None,None),
-	(1,74,"GtkEntry","placeholder-text","0",None,None,None,None,None,None,None,None,None),
-	(1,74,"GtkSpinButton","climb-rate","1.0",None,None,None,None,None,None,None,None,None),
-	(1,74,"GtkSpinButton","numeric","True",None,None,None,None,None,None,None,None,None),
+	(1,74,"GtkSpinButton","adjustment","87",None,None,None,None,None,None,None,None,None),
 	(1,74,"GtkSpinButton","snap-to-ticks","True",None,None,None,None,None,None,None,None,None),
-	(1,74,"GtkSpinButton","value","1.0",None,None,None,None,None,None,None,None,None),
-	(1,74,"GtkSpinButton","wrap","True",None,None,None,None,None,None,None,None,None),
 	(1,74,"GtkWidget","halign","center",None,None,None,None,None,None,None,None,None),
 	(1,75,"GtkLabel","label","Hours",None,None,None,None,None,None,None,None,None),
 	(1,76,"GtkLabel","label","Minutes",None,None,None,None,None,None,None,None,None),
@@ -184,13 +166,32 @@
 	(1,85,"GtkLabel","label","Repeat",None,None,None,None,None,None,None,None,None),
 	(1,85,"GtkWidget","expand","True",None,None,None,None,None,None,None,None,None),
 	(1,85,"GtkWidget","halign","end",None,None,None,None,None,None,None,None,None),
-	(1,85,"GtkWidget","valign","center",None,None,None,None,None,None,None,None,None)
+	(1,85,"GtkWidget","valign","center",None,None,None,None,None,None,None,None,None),
+	(1,87,"GtkAdjustment","page-increment","1.0",None,None,None,None,None,None,None,None,None),
+	(1,87,"GtkAdjustment","step-increment","1.0",None,None,None,None,None,None,None,None,None),
+	(1,87,"GtkAdjustment","upper","59.0",None,None,None,None,None,None,None,None,None),
+	(1,88,"GtkAdjustment","page-increment","1.0",None,None,None,None,None,None,None,None,None),
+	(1,88,"GtkAdjustment","step-increment","1.0",None,None,None,None,None,None,None,None,None),
+	(1,88,"GtkAdjustment","upper","23.0",None,None,None,None,None,None,None,None,None),
+	(1,89,"GtkFrame","label","Reminder Note",None,None,None,None,None,None,None,None,None),
+	(1,89,"GtkFrame","label-xalign","0.06",None,None,None,None,None,None,None,None,None),
+	(1,89,"GtkFrame","label-yalign","1.0",None,None,None,None,None,None,None,None,None),
+	(1,89,"GtkWidget","margin-bottom","10",None,None,None,None,None,None,None,None,None),
+	(1,89,"GtkWidget","margin-top","15",None,None,None,None,None,None,None,None,None),
+	(1,90,"GtkContainer","border-width","1",None,None,None,None,None,None,None,None,None),
+	(1,90,"GtkTextView","bottom-margin","10",None,None,None,None,None,None,None,None,None),
+	(1,90,"GtkTextView","left-margin","10",None,None,None,None,None,None,None,None,None),
+	(1,90,"GtkTextView","right-margin","10",None,None,None,None,None,None,None,None,None),
+	(1,90,"GtkTextView","top-margin","10",None,None,None,None,None,None,None,None,None),
+	(1,90,"GtkTextView","wrap-mode","word",None,None,None,None,None,None,None,None,None),
+	(1,90,"GtkWidget","height-request","290",None,None,None,None,None,None,None,None,None)
   </object_property>
   <object_layout_property>
 	(1,24,35,"GtkBoxLayoutChild","expand","True",None,None,None,None),
 	(1,24,35,"GtkBoxLayoutChild","position","1",None,None,None,None),
 	(1,29,80,"GtkBoxLayoutChild","position","1",None,None,None,None),
-	(1,35,44,"GtkBoxLayoutChild","padding","10",None,None,None,None),
+	(1,35,89,"GtkBoxLayoutChild","position","2",None,None,None,None),
+	(1,37,69,"GtkBoxLayoutChild","position","1",None,None,None,None),
 	(1,69,70,"GtkBoxLayoutChild","position","0",None,None,None,None),
 	(1,70,73,"GtkBoxLayoutChild","position","1",None,None,None,None),
 	(1,70,75,"GtkBoxLayoutChild","position","0",None,None,None,None),
@@ -205,6 +206,6 @@
 	(4,1,77,"GtkButton","clicked","onSaveClicked",None,None,None,None,None)
   </object_signal>
   <object_data>
-	(1,44,"GtkWidget",2,2,None,1,None,None,None,None)
+	(1,90,"GtkWidget",2,2,None,1,None,None,None,None)
   </object_data>
 </cambalache-project>

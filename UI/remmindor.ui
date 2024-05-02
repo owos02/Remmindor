@@ -2,6 +2,13 @@
 <!-- Created with Cambalache 0.90.2 -->
 <interface>
   <!-- interface-name remmindor.ui -->
+  <!-- interface-description The UI file for the open-source
+program Remmindor.
+
+Find it here: https://github.com/owos02 -->
+  <!-- interface-copyright You can find the License here:
+https://github.com/owos02/Remmindor/blob/main/LICENSE -->
+  <!-- interface-authors Oliver W. -->
   <requires lib="gtk+" version="3.20"/>
   <object class="GtkWindow" id="MainWindow">
     <property name="gravity">north</property>
@@ -271,18 +278,21 @@
                         </child>
                         <child>
                           <object class="GtkSpinButton" id="timeHours">
-                            <property name="climb-rate">1.0</property>
+                            <property name="adjustment">hours</property>
                             <property name="halign">center</property>
                             <property name="input-purpose">number</property>
-                            <property name="max-length">2</property>
-                            <property name="max-width-chars">2</property>
-                            <property name="numeric">True</property>
                             <property name="snap-to-ticks">True</property>
-                            <property name="value">1.0</property>
                           </object>
                           <packing>
                             <property name="position">1</property>
                           </packing>
+                        </child>
+                        <child>
+                          <object class="GtkAdjustment" id="hours">
+                            <property name="page-increment">1.0</property>
+                            <property name="step-increment">1.0</property>
+                            <property name="upper">23.0</property>
+                          </object>
                         </child>
                       </object>
                       <packing>
@@ -305,39 +315,53 @@
                         </child>
                         <child>
                           <object class="GtkSpinButton" id="timeMinutes">
-                            <property name="climb-rate">1.0</property>
+                            <property name="adjustment">minutes</property>
                             <property name="halign">center</property>
                             <property name="input-purpose">number</property>
-                            <property name="max-length">2</property>
-                            <property name="max-width-chars">2</property>
-                            <property name="numeric">True</property>
-                            <property name="placeholder-text">0</property>
                             <property name="snap-to-ticks">True</property>
-                            <property name="value">1.0</property>
-                            <property name="wrap">True</property>
                           </object>
                           <packing>
                             <property name="position">1</property>
                           </packing>
                         </child>
+                        <child>
+                          <object class="GtkAdjustment" id="minutes">
+                            <property name="page-increment">1.0</property>
+                            <property name="step-increment">1.0</property>
+                            <property name="upper">59.0</property>
+                          </object>
+                        </child>
                       </object>
                     </child>
                   </object>
+                  <packing>
+                    <property name="position">1</property>
+                  </packing>
                 </child>
               </object>
             </child>
             <child>
-              <object class="GtkTextView" id="reminderText">
-                <property name="height-request">300</property>
-                <property name="left-margin">10</property>
+              <object class="GtkFrame" id="reminderFrame">
+                <property name="label">Reminder Note</property>
+                <property name="label-xalign">0.06</property>
+                <property name="label-yalign">1.0</property>
                 <property name="margin-bottom">10</property>
-                <property name="margin-top">10</property>
-                <property name="right-margin">10</property>
-                <property name="top-margin">10</property>
-                <property name="vexpand">True</property>
+                <property name="margin-top">15</property>
+                <child>
+                  <object class="GtkTextView" id="reminderText">
+                    <property name="border-width">1</property>
+                    <property name="bottom-margin">10</property>
+                    <property name="height-request">290</property>
+                    <property name="left-margin">10</property>
+                    <property name="right-margin">10</property>
+                    <property name="top-margin">10</property>
+                    <property name="wrap-mode">word</property>
+                    <!-- Custom object fragments -->
+                  </object>
+                </child>
               </object>
               <packing>
-                <property name="padding">10</property>
+                <property name="position">2</property>
               </packing>
             </child>
             <child>
