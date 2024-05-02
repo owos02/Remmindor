@@ -7,13 +7,13 @@ builder = Gtk.Builder()
 builder.add_from_file("UI/remmindor.ui")
 
 reminders = []          #Local Reminder Dictionary
-selectedReminder = 0    #Current Selected Reminder that gets edited
+selectedReminder = -1    #Current Selected Reminder that gets edited
 
 def lockReminder(button):
     pass
 
 
-class MainApplication(Gtk.Window):
+class Remmindor(Gtk.Window):
     def __init__(self):
         super().__init__(title="Remmindor")
 
@@ -43,16 +43,18 @@ class MainApplication(Gtk.Window):
         global selectedReminder
         selectedReminder = button.get_name()
         if reminders[int(selectedReminder)]:
-            MainApplication.loadReminder()
+            Remmindor.loadReminder()
             ##button.set_label(builder.get_object("nameReminder").get_text())
             return
         else:
-            MainApplication.deselect()
+            Remmindor.deselect()
         
         tmp = builder.get_object("nameReminder")
         tmp.set_text(button.get_label())
 
     def deselect():
+        global selectedReminder
+        builder.get_object("nameReminder").set_text("")
         builder.get_object("monday").set_active(False)
         builder.get_object("tuesday").set_active(False)
         builder.get_object("wednesday").set_active(False)
@@ -64,10 +66,14 @@ class MainApplication(Gtk.Window):
         builder.get_object("timeMinutes").set_text("0")
         builder.get_object("isRepeat").set_active(False)
         builder.get_object("reminderText").set_buffer(Gtk.TextBuffer())
+        #selectedReminder = -1
 
     def saveReminder(button):
         global selectedReminder
         global reminders
+
+        if selectedReminder == -1:
+            return
 
         for btn in builder.get_object('reminderBox'):
             if btn.get_name() == selectedReminder:
@@ -91,6 +97,9 @@ class MainApplication(Gtk.Window):
         }
         reminders[int(selectedReminder)] = list(data.items())
 
+        Remmindor.save()
+
+    def save():
         # Serializing json
         json_object = json.dumps(reminders, indent=None)
         
@@ -109,14 +118,14 @@ class MainApplication(Gtk.Window):
         reminders.append(newReminder)
 
         reminderButton = Gtk.Button(label="New Reminder " + str(newestID + 1), name=newestID)
-        reminderButton.connect("clicked", MainApplication.getCurrentElementIndex)
+        reminderButton.connect("clicked", Remmindor.getCurrentElementIndex)
 
         builder.get_object("reminderBox").add(reminderButton)
+
         window.show_all()
 
         selectedReminder = newestID
         #print(reminders)
-
 
     def loadSavedReminders():
         global reminders
@@ -133,22 +142,43 @@ class MainApplication(Gtk.Window):
             else:
                 btnname = r[0][1]
                 btn = Gtk.Button(label=btnname, name=index)
-            btn.connect("clicked", MainApplication.getCurrentElementIndex)
+            btn.connect("clicked", Remmindor.getCurrentElementIndex)
             builder.get_object("reminderBox").add(btn)
             index +=1
 
-        #print(reminders)
+    def deleteReminder(button):
+        global reminders
+        global selectedReminder
+
+        if selectedReminder == -1:
+            return 
+
+        print(reminders)
+
+        reminders.pop(int(selectedReminder))
+        Remmindor.save()
+
+        l = builder.get_object("reminderBox")
+
+        for child in l:
+            l.remove(child)
+
+        Remmindor.loadSavedReminders()
+        window.show_all()
+        Remmindor.deselect()
+        selectedReminder = -1
+
 
 generalHandlers = {
     "onDestroy": Gtk.main_quit,
-    "onSaveClicked": MainApplication.saveReminder,
-    "onAddClicked": MainApplication.addReminder,
-    "onDeleteClicked": Gtk.main_quit,
+    "onSaveClicked": Remmindor.saveReminder,
+    "onAddClicked": Remmindor.addReminder,
+    "onDeleteClicked": Remmindor.deleteReminder,
 }
 
 ###
 
-MainApplication.loadSavedReminders()
+Remmindor.loadSavedReminders()
 
 builder.connect_signals(generalHandlers)
 window = builder.get_object("MainWindow")
