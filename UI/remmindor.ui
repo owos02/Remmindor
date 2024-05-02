@@ -42,6 +42,7 @@ https://github.com/owos02/Remmindor/blob/main/LICENSE -->
                   <object class="GtkLabel" id="lockedLabel">
                     <property name="halign">center</property>
                     <property name="label">Locked: </property>
+                    <property name="sensitive">False</property>
                     <property name="valign">center</property>
                   </object>
                 </child>
@@ -49,6 +50,9 @@ https://github.com/owos02/Remmindor/blob/main/LICENSE -->
                   <object class="GtkSwitch" id="lockedSwitch">
                     <property name="halign">center</property>
                     <property name="margin-left">15</property>
+                    <property name="sensitive">False</property>
+                    <property name="tooltip-markup">Work in Progress</property>
+                    <property name="tooltip-text">Work in Progress</property>
                     <property name="valign">center</property>
                   </object>
                 </child>
@@ -65,6 +69,9 @@ https://github.com/owos02/Remmindor/blob/main/LICENSE -->
                     <property name="activates-default">True</property>
                     <property name="margin-bottom">10</property>
                     <property name="placeholder-text">Search for Reminder</property>
+                    <property name="sensitive">False</property>
+                    <property name="tooltip-markup">Work in Progress</property>
+                    <property name="tooltip-text">Work in Progress</property>
                     <property name="width-request">250</property>
                   </object>
                 </child>
@@ -163,12 +170,16 @@ https://github.com/owos02/Remmindor/blob/main/LICENSE -->
                 <property name="valign">start</property>
                 <child>
                   <object class="GtkListBox" id="listDays">
+                    <property name="focus-on-click">False</property>
                     <property name="halign">baseline</property>
                     <property name="width-request">7</property>
                     <child>
                       <object class="GtkBox">
+                        <property name="focus-on-click">False</property>
                         <child>
                           <object class="GtkCheckButton" id="monday">
+                            <property name="expand">True</property>
+                            <property name="focus-on-click">False</property>
                             <child>
                               <object class="GtkLabel">
                                 <property name="label">Monday</property>
@@ -180,8 +191,11 @@ https://github.com/owos02/Remmindor/blob/main/LICENSE -->
                     </child>
                     <child>
                       <object class="GtkBox">
+                        <property name="focus-on-click">False</property>
                         <child>
                           <object class="GtkCheckButton" id="tuesday">
+                            <property name="expand">True</property>
+                            <property name="focus-on-click">False</property>
                             <child>
                               <object class="GtkLabel">
                                 <property name="label">Tuesday</property>
@@ -195,6 +209,8 @@ https://github.com/owos02/Remmindor/blob/main/LICENSE -->
                       <object class="GtkBox">
                         <child>
                           <object class="GtkCheckButton" id="wednesday">
+                            <property name="expand">True</property>
+                            <property name="focus-on-click">False</property>
                             <child>
                               <object class="GtkLabel">
                                 <property name="label">Wednesday</property>
@@ -206,8 +222,11 @@ https://github.com/owos02/Remmindor/blob/main/LICENSE -->
                     </child>
                     <child>
                       <object class="GtkBox">
+                        <property name="focus-on-click">False</property>
                         <child>
                           <object class="GtkCheckButton" id="thursday">
+                            <property name="expand">True</property>
+                            <property name="focus-on-click">False</property>
                             <child>
                               <object class="GtkLabel">
                                 <property name="label">Thursday</property>
@@ -219,8 +238,11 @@ https://github.com/owos02/Remmindor/blob/main/LICENSE -->
                     </child>
                     <child>
                       <object class="GtkBox">
+                        <property name="focus-on-click">False</property>
                         <child>
                           <object class="GtkCheckButton" id="friday">
+                            <property name="expand">True</property>
+                            <property name="focus-on-click">False</property>
                             <child>
                               <object class="GtkLabel">
                                 <property name="label">Friday</property>
@@ -232,8 +254,11 @@ https://github.com/owos02/Remmindor/blob/main/LICENSE -->
                     </child>
                     <child>
                       <object class="GtkBox">
+                        <property name="focus-on-click">False</property>
                         <child>
                           <object class="GtkCheckButton" id="saturday">
+                            <property name="expand">True</property>
+                            <property name="focus-on-click">False</property>
                             <child>
                               <object class="GtkLabel">
                                 <property name="label">Saturday</property>
@@ -245,8 +270,11 @@ https://github.com/owos02/Remmindor/blob/main/LICENSE -->
                     </child>
                     <child>
                       <object class="GtkBox">
+                        <property name="focus-on-click">False</property>
                         <child>
                           <object class="GtkCheckButton" id="sunday">
+                            <property name="expand">True</property>
+                            <property name="focus-on-click">False</property>
                             <child>
                               <object class="GtkLabel">
                                 <property name="label">Sunday</property>
@@ -264,6 +292,7 @@ https://github.com/owos02/Remmindor/blob/main/LICENSE -->
                     <property name="valign">baseline</property>
                     <child>
                       <object class="GtkBox">
+                        <property name="can-focus">True</property>
                         <property name="expand">True</property>
                         <property name="halign">baseline</property>
                         <property name="margin-right">5</property>
