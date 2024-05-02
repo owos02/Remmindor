@@ -6,9 +6,6 @@ from pathlib import Path
 builder = Gtk.Builder()
 builder.add_from_file("UI/remmindor.ui")
 
-###
-### example_structure: ID,[Reminder Information]
-
 reminders = []          #Local Reminder Dictionary
 selectedReminder = 0    #Current Selected Reminder that gets edited
 
@@ -24,9 +21,8 @@ class MainApplication(Gtk.Window):
         global reminders
         global selectedReminder
 
-
         data = dict(reminders[int(selectedReminder)])
-        print(data)
+
         text = Gtk.TextBuffer().new()
         text.set_text(data['reminderText'])
 
@@ -102,7 +98,7 @@ class MainApplication(Gtk.Window):
         with open("data/data.rem","w") as outfile:
             outfile.write(json_object)
 
-        print(reminders)
+        #print(reminders)
         
     def addReminder(button):
         global reminders
@@ -119,7 +115,7 @@ class MainApplication(Gtk.Window):
         window.show_all()
 
         selectedReminder = newestID
-        print(reminders)
+        #print(reminders)
 
 
     def loadSavedReminders():
@@ -141,7 +137,7 @@ class MainApplication(Gtk.Window):
             builder.get_object("reminderBox").add(btn)
             index +=1
 
-        print(reminders)
+        #print(reminders)
 
 generalHandlers = {
     "onDestroy": Gtk.main_quit,
