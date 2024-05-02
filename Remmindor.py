@@ -135,7 +135,8 @@ class MainApplication(Gtk.Window):
                 btn = Gtk.Button(label="New Reminder "+ str(index), name=index)
                 
             else:
-                btn = Gtk.Button(label=r[0][1], name=index)
+                btnname = r[0][1]
+                btn = Gtk.Button(label=btnname, name=index)
             btn.connect("clicked", MainApplication.getCurrentElementIndex)
             builder.get_object("reminderBox").add(btn)
             index +=1
