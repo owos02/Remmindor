@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Remmindor
+Comment=The simple reminder application
+Exec=/home/ara/Documents/Programming/Remmindor/Remmindor.py
+Terminal=false
+Type=Application
+
+StartupNotify=true
+DBusActivatable=true
+X-GNOME-UsesNotifications=true

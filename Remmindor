@@ -1,16 +1,48 @@
+#!/bin/python3
+
 import gi, json
 
 gi.require_version("Gtk", "3.0")
 from gi.repository import Gtk
+from gi.repository import Gio
 from pathlib import Path
 builder = Gtk.Builder()
 builder.add_from_file("UI/remmindor.ui")
 
+DEFAULT_FLAGS = Gio.ApplicationFlags(0)
+
+application = Gio.Application.new("owos02.Remmindor", DEFAULT_FLAGS)
+
 reminders = []          #Local Reminder Dictionary
 selectedReminder = -1    #Current Selected Reminder that gets edited
 
+def checkDesktopLink():
+    pass
+
+def checkCorrectLocation():
+    pass
+
 def lockReminder(button):
     pass
+
+
+def testNotification():
+    global application
+
+    # https://lazka.github.io/pgi-docs/#Gio-2.0/classes/Notification.html#Gio.Notification
+
+    notif = Gio.Notification()
+
+    title = "Test"
+    message = "This is a totally not uselessly long test paragraph for definetly not testing purposes"
+
+    notif.title = title
+    notif.text = message
+
+    application.send_notification("owos02.Remmindor", notif)
+
+
+    return
 
 
 class Remmindor(Gtk.Window):
@@ -110,6 +142,7 @@ class Remmindor(Gtk.Window):
         #print(reminders)
         
     def addReminder(button):
+        #testNotification()
         global reminders
         global selectedReminder
 
@@ -177,6 +210,10 @@ generalHandlers = {
 }
 
 ###
+
+checkDesktopLink()
+checkCorrectLocation()
+
 
 Remmindor.loadSavedReminders()
 
