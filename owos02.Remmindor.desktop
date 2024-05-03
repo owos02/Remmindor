@@ -1,7 +1,7 @@
 [Desktop Entry]
 Name=Remmindor
 Comment=The simple reminder application
-Exec=/home/ara/Documents/Programming/Remmindor/Remmindor.py
+Exec=~/Documents/Programming/Remmindor/Remmindor
 Terminal=false
 Type=Application
 
